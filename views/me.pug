@@ -1,0 +1,99 @@
+.container
+  .row.my-2
+    .col-lg-8.order-lg-2
+      ul.nav.nav-tabs
+        li.nav-item
+          a.nav-link.active(href='./img/download.png', data-target='#profile', data-toggle='tab') Profile
+        li.nav-item
+          a.nav-link(href='', data-target='#edit', data-toggle='tab') Edit
+      .tab-content.py-4
+        #profile.tab-pane.active
+          h5.mb-3 User Profile
+          .row
+            .col-md-6
+              h5 Name
+              p  #{user.name}  
+              h6 About
+              p  I am a #{user.role}
+              -if(user.role=="farmer"){
+              h6 What i do
+              p  I sell variety of fresh crops.
+              -}
+              -else{
+              h6 What i do
+              p  I buy variety of fresh crops.
+              -}
+            .col-md-12
+              h5.mt-2
+                span 🕰
+                |  Recent Activity
+              table.table.table-sm.table-hover.table-striped
+                tbody
+                  tr
+                    td
+                      | Sold 5kg rice at 
+                      strong INR 60/Kg
+                  tr
+                    td
+                      | Sold 25Kg wheat at 
+                      strong INR 20/Kg
+                  tr
+                    td
+                      | Sold 2Kg Tomato at 
+                      strong INR 30/Kg
+                  tr
+                    td
+                      | Sold 50kg Apple at 
+                      strong INR 50/Kg
+          // /row
+        #edit.tab-pane
+          form(role='form')
+            .form-group.row
+              label.col-lg-3.col-form-label.form-control-label First name
+              .col-lg-9
+                input.form-control(type='text', value='Ram Chandra')
+            .form-group.row
+              label.col-lg-3.col-form-label.form-control-label Last name
+              .col-lg-9
+                input.form-control(type='text', value='Kumar')
+            .form-group.row
+              label.col-lg-3.col-form-label.form-control-label Email
+              .col-lg-9
+                input.form-control(type='email', value='rck123@gmail.com')
+            .form-group.row
+              label.col-lg-3.col-form-label.form-control-label Company
+              .col-lg-9
+                input.form-control(type='text', value='')
+            .form-group.row
+              label.col-lg-3.col-form-label.form-control-label Website
+              .col-lg-9
+                input.form-control(type='url', value='')
+            .form-group.row
+              label.col-lg-3.col-form-label.form-control-label Address
+              .col-lg-9
+                input.form-control(type='text', value='', placeholder='Street')
+            .form-group.row
+              label.col-lg-3.col-form-label.form-control-label
+              .col-lg-6
+                input.form-control(type='text', value='', placeholder='City')
+              .col-lg-3
+                input.form-control(type='text', value='', placeholder='State')
+            .form-group.row
+              label.col-lg-3.col-form-label.form-control-label Password
+              .col-lg-9
+                input.form-control(type='password', value='11111122333')
+            .form-group.row
+              label.col-lg-3.col-form-label.form-control-label Confirm password
+              .col-lg-9
+                input.form-control(type='password', value='11111122333')
+            .form-group.row
+              label.col-lg-3.col-form-label.form-control-label
+              .col-lg-9
+                input.btn.btn-secondary(type='reset', value='Cancel')
+                input.btn.btn-primary(type='button', value='Save Changes')
+    .col-lg-4.order-lg-1.text-center
+      img.mx-auto.img-fluid.img-circle.d-block(src='./img/download.png', alt='avatar')
+      h6.mt-2 Upload a different photo
+      label.custom-file
+        input#file.custom-file-input(type='file', accept='image/*', onchange='handleFiles(this.files)')
+        span.custom-file-control Choose file
